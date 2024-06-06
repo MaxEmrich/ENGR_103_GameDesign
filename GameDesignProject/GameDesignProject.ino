@@ -74,6 +74,7 @@ void setup() {
 
 void loop() {
   moistureLevel = CircuitPlayground.readCap(capPin); // Reading from the "A1" pin
+  moistureLevel = map(moistureLevel, 0, 1023, 0, 255);
   Serial.println(moistureLevel);
   if (canGoNextRound) {
     canGoNextRound = false;
@@ -203,7 +204,8 @@ int testCapPad(int currentRoundDelay) {
   delayTimer.start(currentRoundDelay, AsyncDelay::MILLIS);
   while (!(delayTimer.isExpired())) {
     moistureLevel = CircuitPlayground.readCap(capPin); // Reading from the "A1" pin
-    if (moistureLevel > 1100) {
+    moistureLevel = map(moistureLevel, 0, 1023, 0, 255);
+    if (moistureLevel > 150) {
       Serial.println("Correct!");
       delay(100);
       return 0;
