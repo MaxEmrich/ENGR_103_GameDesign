@@ -403,7 +403,7 @@ void round_5_start() {
   rightButtonPrompt();
   testRightBtn(2500); 
 
-  Serial.println("CONDRADULATIONS! YOU HAVE WON THIS GAME. YOU ARE A GOD AMONG THESE MORTALS!"); 
+  Serial.println("CONGRADULATIONS! YOU HAVE WON THIS GAME. YOU ARE A GOD AMONG THESE MORTALS!"); 
   delay(100);
   flashing(colorArray, arraySize);
 }
