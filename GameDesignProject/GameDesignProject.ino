@@ -124,7 +124,7 @@ void roundFailure()
   CircuitPlayground.playTone(400, 100);
   CircuitPlayground.playTone(300, 100);
   CircuitPlayground.playTone(200, 100);
-  delay(200);
+  delay(400);
   exit(1);
 }
 
@@ -173,7 +173,7 @@ void capPadPrompt() {
 void switchPrompt() {
   for (int j = 0; j < 2; j++) {
     for (int i = 0; i < numLEDs; i++) {
-      CircuitPlayground.setPixelColor(i, 255);  
+      CircuitPlayground.setPixelColor(i, 20);  
     }
     delay(100);
   }
@@ -183,7 +183,7 @@ void rightButtonPrompt() {
   for (int i = 5; i < 10; i++) {
     CircuitPlayground.setPixelColor(i, 100);
   }
-  delay(500);
+  delay(400);
   CircuitPlayground.clearPixels();
 }
 
@@ -192,7 +192,7 @@ void leftButtonPrompt() {
   for (int i = 0; i < 5; i++) {
     CircuitPlayground.setPixelColor(i, 100);
   }
-  delay(100);
+  delay(400);
   CircuitPlayground.clearPixels();
 }
 
@@ -237,7 +237,7 @@ int testLeftBtn(int currentRoundDelay) {
     if (leftBtnFlag) {
       Serial.println("Correct!");
       leftBtnFlag = false;
-      delay(200);
+      delay(400);
       return 0;
     }
   }
@@ -252,7 +252,7 @@ int testRightBtn(int currentRoundDelay) {
     if (rightBtnFlag) {
       Serial.println("Correct!");
       rightBtnFlag = false;
-      delay(200);
+      delay(400);
       return 0;
     }
   }
@@ -275,6 +275,8 @@ void round_1_start() {
   Serial.println("There are 5 pre-defined rounds... BEGIN!");
   delay(15000); // delay 15 seconds
 
+  Serial.println(round_num);
+
   rightButtonPrompt();
   testRightBtn(4000);
 
@@ -293,24 +295,39 @@ void round_1_start() {
 
 void round_2_start() {
   Serial.println("WELCOME TO THE SECOND ROUND!");
+  Serial.println(round_num);
+
+  delay(400);
 
   rightButtonPrompt();
   testRightBtn(3500); 
 
+  delay(400);
+
   rightButtonPrompt();
   testRightBtn(3500); 
+
+  delay(400);
 
   capPadPrompt();
   testCapPad(3500);
+
+  delay(400);
 
   switchPrompt();
   testSwitch(3500);
 
+  delay(400);
+
   capPadPrompt();
   testCapPad(3500);
 
+  delay(400);
+
   rightButtonPrompt();
   testRightBtn(3500); 
+
+  delay(400);
 
   canGoNextRound = true;
   round_num++;
@@ -318,30 +335,49 @@ void round_2_start() {
 
 void round_3_start() {
   Serial.println("WELCOME TO THE THIRD ROUND!");
+  Serial.println(round_num);
+
+  delay(400);
 
   capPadPrompt();
   testCapPad(3000);
   
+  delay(400);
+  
   switchPrompt();
   testSwitch(3000);
 
+  delay(400);
+
   switchPrompt();
   testSwitch(3000);
+
+  delay(400);
 
   rightButtonPrompt();
   testRightBtn(3000); 
 
+  delay(400);
+
   rightButtonPrompt();
-  testRightBtn(3000); 
+  testRightBtn(3000);
+
+  delay(400); 
 
   leftButtonPrompt();
   testLeftBtn(3000);
 
+  delay(400);
+
   leftButtonPrompt();
   testLeftBtn(3000);
+
+  delay(400);
 
   switchPrompt();
   testSwitch(3000);
+
+  delay(400);
 
   canGoNextRound = true;
   round_num++;
@@ -349,27 +385,44 @@ void round_3_start() {
 
 void round_4_start() {
   Serial.println("WELCOME TO THE FOURTH ROUND!");
+  Serial.println(round_num);
+
+  delay(400);
 
   switchPrompt();
   testSwitch(2500);
 
+  delay(400);
+
   switchPrompt();
   testSwitch(2500);
+
+  delay(400);
 
   leftButtonPrompt();
   testLeftBtn(2500);
+
+  delay(400);
   
   rightButtonPrompt();
   testRightBtn(2500); 
 
-  capPadPrompt();
-  testCapPad(2500);
+  delay(400);
 
   capPadPrompt();
   testCapPad(2500);
+
+  delay(400);
+
+  capPadPrompt();
+  testCapPad(2500);
+
+  delay(400);
 
   rightButtonPrompt();
   testRightBtn(2500); 
+
+  delay(400);
   
   canGoNextRound = true;
   round_num++;
@@ -377,33 +430,54 @@ void round_4_start() {
 
 void round_5_start() {
   Serial.println("WELCOME TO THE FIFTH ROUND!");
+  Serial.println(round_num);
+
+  delay(400);
 
   switchPrompt();
   testSwitch(2000);
 
-  leftButtonPrompt();
-  testLeftBtn(2000);
+  delay(400);
 
   leftButtonPrompt();
   testLeftBtn(2000);
+
+  delay(400);
+
+  leftButtonPrompt();
+  testLeftBtn(2000);
+
+  delay(400);
 
   capPadPrompt();
   testCapPad(2000);
 
+  delay(400);
+
   leftButtonPrompt();
   testLeftBtn(2000);
 
+  delay(400);
+
   capPadPrompt();
   testCapPad(2000);
+
+  delay(400);
 
   rightButtonPrompt();
   testRightBtn(2500); 
+
+  delay(400);
 
   switchPrompt();
   testSwitch(2500);
+
+  delay(400);
   
   rightButtonPrompt();
   testRightBtn(2500); 
+
+  delay(400);
 
   Serial.println("CONGRATULATIONS! YOU HAVE WON THIS GAME. YOU ARE A GOD AMONG THESE MORTALS!"); 
   delay(100);
